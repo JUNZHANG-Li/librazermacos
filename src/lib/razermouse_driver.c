@@ -2400,3 +2400,20 @@ void razer_attr_write_right_led_brightness(IOUSBDeviceInterface **usb_dev, unsig
 {
     return razer_attr_write_side_led_brightness(usb_dev, brightness, RIGHT_SIDE_LED);
 }
+
+/**
+ * Read device file "base_led_brightness"
+ */
+ushort razer_attr_read_base_led_brightness(IOUSBDeviceInterface **usb_dev)
+{
+    return razer_attr_read_side_led_brightness(usb_dev, BASILISK_V3_BASE_LED);
+}
+
+/**
+ * Write device file "base_led_brightness"
+ */
+void razer_attr_write_base_led_brightness(IOUSBDeviceInterface **usb_dev, unsigned char brightness)
+{
+    return razer_attr_write_side_led_brightness(usb_dev, brightness, BASILISK_V3_BASE_LED);
+}
+
