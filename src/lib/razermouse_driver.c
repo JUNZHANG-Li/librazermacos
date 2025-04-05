@@ -2270,7 +2270,7 @@ ushort razer_attr_read_side_led_brightness(IOUSBDeviceInterface **usb_dev, int s
             break;
 
         case USB_DEVICE_ID_RAZER_BASILISK_V3:
-            report = razer_chroma_extended_matrix_get_brightness(VARSTORE, BASILISK_V3_BASE_LED);
+            report = razer_chroma_extended_matrix_get_brightness(VARSTORE, side);
             report.transaction_id.id = 0x1f;
             break;
 
@@ -2309,7 +2309,7 @@ void razer_attr_write_side_led_brightness(IOUSBDeviceInterface **usb_dev, unsign
             break;
 
         case USB_DEVICE_ID_RAZER_BASILISK_V3:
-            report = razer_chroma_extended_matrix_brightness(VARSTORE, BASILISK_V3_BASE_LED, brightness);
+            report = razer_chroma_extended_matrix_brightness(VARSTORE, side, brightness);
             report.transaction_id.id = 0x1f;
             break;
 
@@ -2352,3 +2352,20 @@ void razer_attr_write_right_led_brightness(IOUSBDeviceInterface **usb_dev, unsig
 {
     return razer_attr_write_side_led_brightness(usb_dev, brightness, RIGHT_SIDE_LED);
 }
+
+/**
+ * Read device file "base_led_brightness"
+ */
+ushort razer_attr_read_base_led_brightness(IOUSBDeviceInterface **usb_dev)
+{
+    return razer_attr_read_side_led_brightness(usb_dev, BASILISK_V3_BASE_LED);
+}
+
+/**
+ * Write device file "base_led_brightness"
+ */
+void razer_attr_write_base_led_brightness(IOUSBDeviceInterface **usb_dev, unsigned char brightness)
+{
+    return razer_attr_write_side_led_brightness(usb_dev, brightness, BASILISK_V3_BASE_LED);
+}
+

@@ -201,6 +201,9 @@ void razer_attr_write_left_led_brightness(IOUSBDeviceInterface **usb_dev, unsign
 ushort razer_attr_read_right_led_brightness(IOUSBDeviceInterface **usb_dev);
 void razer_attr_write_right_led_brightness(IOUSBDeviceInterface **usb_dev, unsigned char brightness);
 
+ushort razer_attr_read_base_led_brightness(IOUSBDeviceInterface **usb_dev);
+void razer_attr_write_base_led_brightness(IOUSBDeviceInterface **usb_dev, unsigned char brightness);
+
 // Older mouse
 ssize_t razer_attr_write_logo_led_effect(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count);
 ssize_t razer_attr_write_scroll_led_effect(IOUSBDeviceInterface **usb_dev, const char *buf, size_t count);
