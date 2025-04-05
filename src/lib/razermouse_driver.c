@@ -2056,7 +2056,7 @@ ushort razer_attr_read_matrix_brightness(IOUSBDeviceInterface **usb_dev)
     }
     // Brightness is at arg[0] for dock and arg[1] for led_brightness
     ushort brightness = response.arguments[brightness_index];
-    brightness = round(brightness / 2.55);
+    brightness = round(brightness / 2.55 / 2.55);
     return brightness;
 }
 
